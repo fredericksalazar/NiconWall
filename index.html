@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Privileged app</title>
+        <meta name="description" content="A privileged app stub">
+        <meta content="#e74c3c" name="theme-color"></meta>
+        
+        <!--
+          viewport allows you to control how mobile browsers will render your content.
+          width=device-width tells mobile browsers to render your content across the
+          full width of the screen, without being zoomed out (by default it would render
+          it at a desktop width, then shrink it to fit.)
+          Read more about it here:
+          https://developer.mozilla.org/Mozilla/Mobile/Viewport_meta_tag
+        -->
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/app.css"> 
+        <link rel="stylesheet" href="css/headers.css">
+        <!--
+        Inline JavaScript code is not allowed for privileged and certified apps,
+        due to Content Security Policy restrictions.
+        You can read more about it here: https://developer.mozilla.org/Apps/CSP
+        Plus keeping your JavaScript separated from your HTML is always a good practice!
+
+        We're also using the 'defer' attribute. This allows us to tell the browser that
+        it should not wait for this file to load before continuing to load the rest of
+        resources in the page. Then, once everything has been loaded, it will parse and
+        execute the deferred files.
+        Read about defer: https://developer.mozilla.org/Web/HTML/Element/script#attr-defer
+        -->
+        <script type="text/javascript" src="js/core.js" defer></script>
+
+        <!--
+        The following two lines are for loading the localisations library
+        and the localisation data-so people can use the app in their
+        own language (as long as you provide translations).
+        -->
+        <link rel="prefetch" type="application/l10n" href="data/locales.ini" />
+        <script type="text/javascript" src="js/libs/l10n.js" defer></script>
+    </head>
+    
+    
+    <body>          
+        <section role="region">
+           <header>
+             <menu type="toolbar">  
+                 <button id="set" onclick=setWallpaper()><img src="img/icons/check.png"></button>
+             </menu>
+             <h1>NiconWall</h1>
+           </header>
+         </section>
+        
+              
+        <div id="container">
+            <br>
+            <br>
+            <br>
+            <br>
+            <img id="img1" src="img/thumbs/th-wall-1.jpg"    onclick="isSelected('img1')"/>
+            <img id="img2" src="img/thumbs/th-wall-2.jpg"    onclick="isSelected('img2')"/>
+            <img id="img3" src="img/thumbs/th-wall-3.jpg"    onclick="isSelected('img3')"/>
+            <img id="img4" src="img/thumbs/th-wall-4.jpg"    onclick="isSelected('img4')"/>
+            <img id="img5" src="img/thumbs/th-wall-5.jpg"    onclick="isSelected('img5')"/>
+            <img id="img6" src="img/thumbs/th-wall-6.jpg"    onclick="isSelected('img6')"/>
+            <img id="img7" src="img/thumbs/th-wall-7.jpg"    onclick="isSelected('img7')"/>
+            <img id="img8" src="img/thumbs/th-wall-8.jpg"    onclick="isSelected('img8')"/>
+            <img id="img9" src="img/thumbs/th-wall-9.jpg"    onclick="isSelected('img9')"/>
+            <img id="img10" src="img/thumbs/th-wall-10.jpg"  onclick="isSelected('img10')"/>
+            <img id="img11" src="img/thumbs/th-wall-11.jpg"  onclick="isSelected('img11')"/>
+            <img id="img12" src="img/thumbs/th-wall-12.jpg"  onclick="isSelected('img12')"/>
+            <img id="img13" src="img/thumbs/th-wall-13.jpg"  onclick="isSelected('img13')"/>
+            <img id="img14" src="img/thumbs/th-wall-14.jpg"  onclick="isSelected('img14')"/>
+            <img id="img15" src="img/thumbs/th-wall-15.jpg"  onclick="isSelected('img15')"/>
+            <img id="img16" src="img/thumbs/th-wall-16.jpg"  onclick="isSelected('img16')"/>
+            <img id="img17" src="img/thumbs/th-wall-17.jpg"  onclick="isSelected('img17')"/>
+            <img id="img18" src="img/thumbs/th-wall-18.jpg"  onclick="isSelected('img18')"/>
+            <img id="img19" src="img/thumbs/th-wall-19.jpg"  onclick="isSelected('img19')"/>
+            <img id="img20" src="img/thumbs/th-wall-20.jpg"  onclick="isSelected('img20')"/>
+            <img id="img21" src="img/thumbs/th-wall-21.jpg"  onclick="isSelected('img21')"/>
+            <img id="img22" src="img/thumbs/th-wall-22.jpg"  onclick="isSelected('img22')"/>
+            <img id="img23" src="img/thumbs/th-wall-23.jpg"  onclick="isSelected('img23')"/>
+            <img id="img24" src="img/thumbs/th-wall-24.jpg"  onclick="isSelected('img24')"/>
+            <img id="img25" src="img/thumbs/th-wall-25.jpg"  onclick="isSelected('img25')"/>
+            <img id="img26" src="img/thumbs/th-wall-26.jpg"  onclick="isSelected('img26')"/>
+            <img id="img27" src="img/thumbs/th-wall-27.jpg"  onclick="isSelected('img27')"/>
+            <img id="img28" src="img/thumbs/th-wall-28.jpg"  onclick="isSelected('img28')"/>
+            <img id="img29" src="img/thumbs/th-wall-29.jpg"  onclick="isSelected('img29')"/>
+            <img id="img30" src="img/thumbs/th-wall-30.jpg"  onclick="isSelected('img30')"/>
+        </div>    
+        <br>
+        <div id="footer">             
+            <br>
+            <br>
+            <br>
+            <br>Versión: 2.0
+            <br>Desarrollador: NiconSystem CO
+            <br>Tecnología:Html5, css, javascript
+            <br>Desarrollado en: Ubuntu 14.04
+            <br>Creado con:Firefox WebIDE 
+            <br>
+            <br>
+             NiconWall es una app exclusiva para dispositivos FirefoxOS que te permitirá ajustar hermosos Wallpapers para
+             tu smarthphone de una forma muy simple y sencilla.  
+            
+            <br>
+            <br>
+                Advertencia:</b>Esta app aun esta en fase de desarrollo por lo tanto puede experimentar algunos fallos durante 
+                su uso, le rogamos envie sus comentarios a: NiconSystem@gmail.com
+            <p>En desarrollo:
+                <p> Seguimos trabajando en crear la mejor app de personalización para FirefoxOS, estamos desarrollando nuevas funcionalidades
+                    como Wallpapers Online, carga de imagenes desde el dispositivo, poder tomar una foto y convertirla en tu wallpaper, o mejor
+                    aún poder buscar y descargar directamente desde Internet.
+               </p>
+               <p>
+                <br>la versión 3.0 llegará cargada de nuevas herramientas.
+               </p>
+               <div id="logo">
+                <img src="/img/icons/NiconSystem.png">
+               </div>
+        </div>
+    </body>
+</html>

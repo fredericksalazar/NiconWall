@@ -1,0 +1,17 @@
+{
+  "version": "2.0",
+  "name": "NiconWall",
+  "description": "NiconWall 100% offline es una App exclusiva para dispositivos FirefoxOS que te permitirá ajustar hermosos wallpapers para tu smartphone.",
+  "launch_path": "/index.html",
+  "icons": {
+    "16": "/img/icons/16.png",
+    "48": "/img/icons/48.png",
+    "60": "/img/icons/60.png",
+    "128": "/img/icons/128.png"
+  },
+  "developer": {
+    "name": "NiconSystem CO",
+    "url": "http://niconsystem.zz.mu"
+  },  
+  "default_locale": "es"
+}
