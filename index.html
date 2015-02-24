@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Privileged app</title>
+        <title>NiconWall</title>
         <meta name="description" content="A privileged app stub">
         <meta content="#e74c3c" name="theme-color"></meta>
         
@@ -29,7 +29,7 @@
         execute the deferred files.
         Read about defer: https://developer.mozilla.org/Web/HTML/Element/script#attr-defer
         -->
-        <script type="text/javascript" src="js/core.js" defer></script>
+        <script type="text/javascript" src="js/core.js"></script>
 
         <!--
         The following two lines are for loading the localisations library
@@ -43,50 +43,53 @@
     
     <body>          
         <section role="region">
-           <header>
-             <menu type="toolbar">  
-                 <button id="set" onclick=setWallpaper()><img src="img/icons/check.png"></button>
+          <header>
+             <a id="bn-back" style='display:none;'><img id="back" src="img/icons/left.png"> </a>
+             <menu type="toolbar">
+                <button id="set"></button>
+                <button id="more"></button>
              </menu>
-             <h1>NiconWall</h1>
-           </header>
-         </section>
-        
-              
+             <h1 id="title">NiconWall</h1>
+          </header>
+       </section>
+        <div id="online" style="display=none;">
+            <br>
+            <br>
+            <br>
+        </div>
         <div id="container">
             <br>
             <br>
-            <br>
-            <br>
-            <img id="img1" src="img/thumbs/th-wall-1.jpg"    onclick="isSelected('img1')"/>
-            <img id="img2" src="img/thumbs/th-wall-2.jpg"    onclick="isSelected('img2')"/>
-            <img id="img3" src="img/thumbs/th-wall-3.jpg"    onclick="isSelected('img3')"/>
-            <img id="img4" src="img/thumbs/th-wall-4.jpg"    onclick="isSelected('img4')"/>
-            <img id="img5" src="img/thumbs/th-wall-5.jpg"    onclick="isSelected('img5')"/>
-            <img id="img6" src="img/thumbs/th-wall-6.jpg"    onclick="isSelected('img6')"/>
-            <img id="img7" src="img/thumbs/th-wall-7.jpg"    onclick="isSelected('img7')"/>
-            <img id="img8" src="img/thumbs/th-wall-8.jpg"    onclick="isSelected('img8')"/>
-            <img id="img9" src="img/thumbs/th-wall-9.jpg"    onclick="isSelected('img9')"/>
-            <img id="img10" src="img/thumbs/th-wall-10.jpg"  onclick="isSelected('img10')"/>
-            <img id="img11" src="img/thumbs/th-wall-11.jpg"  onclick="isSelected('img11')"/>
-            <img id="img12" src="img/thumbs/th-wall-12.jpg"  onclick="isSelected('img12')"/>
-            <img id="img13" src="img/thumbs/th-wall-13.jpg"  onclick="isSelected('img13')"/>
-            <img id="img14" src="img/thumbs/th-wall-14.jpg"  onclick="isSelected('img14')"/>
-            <img id="img15" src="img/thumbs/th-wall-15.jpg"  onclick="isSelected('img15')"/>
-            <img id="img16" src="img/thumbs/th-wall-16.jpg"  onclick="isSelected('img16')"/>
-            <img id="img17" src="img/thumbs/th-wall-17.jpg"  onclick="isSelected('img17')"/>
-            <img id="img18" src="img/thumbs/th-wall-18.jpg"  onclick="isSelected('img18')"/>
-            <img id="img19" src="img/thumbs/th-wall-19.jpg"  onclick="isSelected('img19')"/>
-            <img id="img20" src="img/thumbs/th-wall-20.jpg"  onclick="isSelected('img20')"/>
-            <img id="img21" src="img/thumbs/th-wall-21.jpg"  onclick="isSelected('img21')"/>
-            <img id="img22" src="img/thumbs/th-wall-22.jpg"  onclick="isSelected('img22')"/>
-            <img id="img23" src="img/thumbs/th-wall-23.jpg"  onclick="isSelected('img23')"/>
-            <img id="img24" src="img/thumbs/th-wall-24.jpg"  onclick="isSelected('img24')"/>
-            <img id="img25" src="img/thumbs/th-wall-25.jpg"  onclick="isSelected('img25')"/>
-            <img id="img26" src="img/thumbs/th-wall-26.jpg"  onclick="isSelected('img26')"/>
-            <img id="img27" src="img/thumbs/th-wall-27.jpg"  onclick="isSelected('img27')"/>
-            <img id="img28" src="img/thumbs/th-wall-28.jpg"  onclick="isSelected('img28')"/>
-            <img id="img29" src="img/thumbs/th-wall-29.jpg"  onclick="isSelected('img29')"/>
-            <img id="img30" src="img/thumbs/th-wall-30.jpg"  onclick="isSelected('img30')"/>
+            <img id="img1" class="touch" src="img/thumbs/th-wall-1.jpg"/>
+            <img id="img2" class="touch" src="img/thumbs/th-wall-2.jpg"/>
+            <img id="img3" class="touch" src="img/thumbs/th-wall-3.jpg"/>
+            <img id="img4" class="touch" src="img/thumbs/th-wall-4.jpg"/>
+            <img id="img5" class="touch" src="img/thumbs/th-wall-5.jpg"/>
+            <img id="img6" class="touch" src="img/thumbs/th-wall-6.jpg"/>
+            <img id="img7" class="touch" src="img/thumbs/th-wall-7.jpg"/>
+            <img id="img8" class="touch" src="img/thumbs/th-wall-8.jpg"/>
+            <img id="img9" class="touch" src="img/thumbs/th-wall-9.jpg"/>
+            <img id="img10" class="touch" src="img/thumbs/th-wall-10.jpg"/>
+            <img id="img11" class="touch" src="img/thumbs/th-wall-11.jpg"/>
+            <img id="img12" class="touch" src="img/thumbs/th-wall-12.jpg"/>
+            <img id="img13" class="touch" src="img/thumbs/th-wall-13.jpg"/>
+            <img id="img14" class="touch" src="img/thumbs/th-wall-14.jpg"/>
+            <img id="img15" class="touch" src="img/thumbs/th-wall-15.jpg"/>
+            <img id="img16" class="touch" src="img/thumbs/th-wall-16.jpg"/>
+            <img id="img17" class="touch" src="img/thumbs/th-wall-17.jpg"/>
+            <img id="img18" class="touch" src="img/thumbs/th-wall-18.jpg"/>
+            <img id="img19" class="touch" src="img/thumbs/th-wall-19.jpg"/>
+            <img id="img20" class="touch" src="img/thumbs/th-wall-20.jpg"/>
+            <img id="img21" class="touch" src="img/thumbs/th-wall-21.jpg"/>
+            <img id="img22" class="touch" src="img/thumbs/th-wall-22.jpg"/>
+            <img id="img23" class="touch" src="img/thumbs/th-wall-23.jpg"/>
+            <img id="img24" class="touch" src="img/thumbs/th-wall-24.jpg"/>
+            <img id="img25" class="touch" src="img/thumbs/th-wall-25.jpg"/>
+            <img id="img26" class="touch" src="img/thumbs/th-wall-26.jpg"/>
+            <img id="img27" class="touch" src="img/thumbs/th-wall-27.jpg"/>
+            <img id="img28" class="touch" src="img/thumbs/th-wall-28.jpg"/>
+            <img id="img29" class="touch" src="img/thumbs/th-wall-29.jpg"/>
+            <img id="img30" class="touch" src="img/thumbs/th-wall-30.jpg"/>
         </div>    
         <br>
         <div id="footer">             
@@ -118,6 +121,9 @@
                <div id="logo">
                 <img src="/img/icons/NiconSystem.png">
                </div>
+        <script type="text/javascript">
+            addTouchEvent();
+        </script>
         </div>
     </body>
 </html>

@@ -12,6 +12,7 @@ section[role="region"] > header:first-child {
   width: 100%;
   background-size: auto 100%;
   box-shadow: 0px 5px 6px #000;
+  display:inline;
 }
 
 section[role="region"] > header:first-child h1 {
@@ -36,33 +37,48 @@ section[role="region"] > header:first-child h1 em {
 }
 
 section[role="region"] > header:first-child menu {
-  height: 100%;
-  float: right;
+    margin-top: 7%;
+    height: 50px;
+    width:  120px;
+    padding-right: 10px;
+    padding-left: 0px;
+    top:10px;
+    float: right;
+  
 }
 
+#set{
+    background: url(/img/icons/check.png) no-repeat;
+    float: right;
+}
+
+#more{
+    background: url(/img/icons/add.png);
+    float: left;
+    padding-left: 0;
+}
 /* ----------------------------------
   Buttons
 ---------------------------------- */
 
-section[role="region"] > header:first-child a,
-section[role="region"] > header:first-child button {
-  box-sizing: border-box;
+section[role="region"] > header:first-child a{
+    margin-top: 2px;
+    margin-left: 5px;
+    float: left;
+}
+
+section[role="region"] > header:first-child button {  
   overflow: hidden;
-  vertical-align: top;
-  min-width: 5rem;
-  width: auto;
-  height: 5rem;
-  border: none;
+  top: 5px;
+  width: 48px;
+  height: 48px;
   background: none;
-  padding: 0 1rem;
   margin: 0;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 5rem;
-  border-radius: 0;
-  text-decoration: none;
-  text-align: center;
-  text-shadow: none;
+  border-radius: 50px;
+  box-shadow: 2px 2px 8px #000000;
   font-style: italic;
 }
 
