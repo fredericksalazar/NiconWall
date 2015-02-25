@@ -29,36 +29,27 @@
         execute the deferred files.
         Read about defer: https://developer.mozilla.org/Web/HTML/Element/script#attr-defer
         -->
-        <script type="text/javascript" src="js/core.js"></script>
-
-        <!--
-        The following two lines are for loading the localisations library
-        and the localisation data-so people can use the app in their
-        own language (as long as you provide translations).
-        -->
-        <link rel="prefetch" type="application/l10n" href="data/locales.ini" />
-        <script type="text/javascript" src="js/libs/l10n.js" defer></script>
+        <script type="text/javascript" src="js/app.js"></script>
     </head>
-    
-    
     <body>          
         <section role="region">
           <header>
-             <a id="bn-back" style='display:none;'><img id="back" src="img/icons/left.png"> </a>
+             <a id="bn-back" style='display:none;'>
+                 <img id="back" src="img/icons/left.png"> 
+             </a>
              <menu type="toolbar">
-                <button id="set"></button>
-                <button id="more"></button>
+                <button id="set" onclick="setWallpaper()"></button>
+                <button id="more" onclick="setOnline()"></button>
              </menu>
              <h1 id="title">NiconWall</h1>
           </header>
        </section>
-        <div id="online" style="display=none;">
+        <div id="online" style="display='none';">
             <br>
             <br>
             <br>
         </div>
         <div id="container">
-            <br>
             <br>
             <img id="img1" class="touch" src="img/thumbs/th-wall-1.jpg"/>
             <img id="img2" class="touch" src="img/thumbs/th-wall-2.jpg"/>
@@ -104,26 +95,21 @@
             <br>
             <br>
              NiconWall es una app exclusiva para dispositivos FirefoxOS que te permitirá ajustar hermosos Wallpapers para
-             tu smarthphone de una forma muy simple y sencilla.  
-            
+             tu smarthphone de una forma muy simple y sencilla.              
             <br>
             <br>
-                Advertencia:</b>Esta app aun esta en fase de desarrollo por lo tanto puede experimentar algunos fallos durante 
+                Advertencia:Esta app aun esta en fase de desarrollo por lo tanto puede experimentar algunos fallos durante 
                 su uso, le rogamos envie sus comentarios a: NiconSystem@gmail.com
-            <p>En desarrollo:
-                <p> Seguimos trabajando en crear la mejor app de personalización para FirefoxOS, estamos desarrollando nuevas funcionalidades
-                    como Wallpapers Online, carga de imagenes desde el dispositivo, poder tomar una foto y convertirla en tu wallpaper, o mejor
-                    aún poder buscar y descargar directamente desde Internet.
-               </p>
-               <p>
+            <p>En desarrollo:</p>
+            <p> Seguimos trabajando en crear la mejor app de personalización para FirefoxOS, estamos desarrollando nuevas funcionalidades
+                como Wallpapers Online, carga de imagenes desde el dispositivo, poder tomar una foto y convertirla en tu wallpaper, o mejor
+                aún poder buscar y descargar directamente desde Internet.
+            </p>
+            <p>
                 <br>la versión 3.0 llegará cargada de nuevas herramientas.
-               </p>
-               <div id="logo">
-                <img src="/img/icons/NiconSystem.png">
-               </div>
-        <script type="text/javascript">
-            addTouchEvent();
-        </script>
+            </p>
+        <div id="logo">
+            <img src="/img/icons/NiconSystem.png">
         </div>
     </body>
 </html>

@@ -12,6 +12,11 @@
   "developer": {
     "name": "NiconSystem CO",
     "url": "http://niconsystem.zz.mu"
-  },  
-  "default_locale": "es"
+  },
+  "permissions": {  
+    "systemXHR" : {
+      "description" : "Required to access remote api"
+    }
+  },
+  "type": "privileged"
 }
