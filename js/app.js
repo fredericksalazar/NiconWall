@@ -3,13 +3,14 @@ window.addEventListener('DOMContentLoaded', function() {
 // https://developer.mozilla.org/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
 'use strict';
     
+    setLocal();
     addTouchEvent();
     
     var img;
     var imagen;
     var name;
     var prev;
-    var mode=0;
+    var mode=0;    
     
     //Vamos a controlar todos los posibles eventos de toque en la pantalla a traves de los cuales
     //el usuario podrá interactuar con los controles y recursos de la app,
@@ -21,13 +22,17 @@ window.addEventListener('DOMContentLoaded', function() {
                 if(obj.target.className==='touch'){
                     isSelected(obj.target.id);
                 }
-                if(obj.target.id==="more"){
+                if(obj.target.id==='more'){
+                    var parent = document.getElementById("container");
+                    parent.parentNode.removeChild(parent);
                     setOnline();
                 }
                 if(obj.target.id==='set'){
                     setWallpaper();
                 }
                 if(obj.target.id==='back'){
+                    var parent=document.getElementById("online");
+                    parent.parentNode.removeChild(parent);
                     setLocal();
                 }
             }, false);
@@ -113,10 +118,11 @@ window.addEventListener('DOMContentLoaded', function() {
         var server="http://niconsystem.zz.mu/NiconWall/";
         var nameImg="th-wall-";
         var ext=".jpg";
-        var maxFile=2;
-        var subName=0;
         var idI="img";
+        var maxFile=13;
+        var subName=0;        
         var divImg=document.getElementById("online");
+        
         //hacemos la carga de todas las imágenes del servidor
             for(var i=0;i<maxFile;i++){                
                 subName=i+1; 
@@ -126,26 +132,53 @@ window.addEventListener('DOMContentLoaded', function() {
                 onlImg.src=server+nameImg+subName+ext;                
                 divImg.appendChild(onlImg);  
             }
-    } 
+    }
+    
+    
+    //este metodo se encarga de hacer la carga de todas las imagenes almacenadas de forma local en la app
+    //y cargarlas en la vista Html.
+    
+    function getLocalResource(){
+        var urlocal="/img/thumbs/";
+        var Loname="th-wall-";
+        var Loext=".jpg";
+        var LoidI="img";        
+        var subname=0;
+        var divLo=document.getElementById("container");
+        
+            for(var i=0;i<30;i++){
+                subname=i+1;
+                var loImg = document.createElement("img");
+                loImg.id=LoidI+subname;
+                loImg.className='touch';
+                loImg.src=urlocal+Loname+subname+Loext;
+                divLo.appendChild(loImg);
+            }
+    }
+    
 
     //Permite ajustar la UI de NiconWall para obtener los wallpapers desde el servidor.
     
     function setOnline(){
         mode=1;
-        document.getElementById("container").style.display='none';
-        document.getElementById("online").style.display='block';
+        var online=document.createElement("div");
+        online.setAttribute("id","online");                
         document.getElementById("more").style.display='none';
-        document.getElementById("bn-back").style.display='inline';        
+        document.getElementById("bn-back").style.display='inline'; 
+        document.body.appendChild(online);
         getOnlineResource();        
+        addTouchEvent();
     }
 
     //Permite ajustar la UI de NiconWall 
     
-    function setLocal(){        
-        document.getElementById("online").style.display='none';
-        document.getElementById("container").style.display='inline';
+    function setLocal(){  
+        mode=0;       
+        var local=document.createElement("div");
+        local.setAttribute("id","container");
+        document.body.appendChild(local);
         document.getElementById("more").style.display='block';
-        document.getElementById("bn-back").style.display='none';
-        mode=0;
+        document.getElementById("bn-back").style.display='none';        
+        getLocalResource();
     }
 });  
