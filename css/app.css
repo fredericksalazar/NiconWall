@@ -50,6 +50,14 @@ section[role="region"] {
     clear: left;
 }
 
+#info{
+  width: 90%;
+  height: auto;
+  text-align: center;
+  font-size: 3em;
+  color: #e74c3c;
+}
+
 footer{
     margin: 0px;
     width: 100%;
