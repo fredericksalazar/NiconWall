@@ -1,20 +1,19 @@
 window.addEventListener('DOMContentLoaded', function() {
-// We'll ask the browser to use strict code to help us catch errors earlier.
-// https://developer.mozilla.org/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
 'use strict';
     
-    setLocal();
-    addTouchEvent();
-    
+    var sizeLocal = 34;
+    var sizeOnline = 26;
     var img;
     var imagen;
     var name;
     var prev;
-    var mode=0;    
+    var mode=0;
     
-    //Vamos a controlar todos los posibles eventos de toque en la pantalla a traves de los cuales
-    //el usuario podrá interactuar con los controles y recursos de la app,
+    setLocal();
+    addTouchEvent();
+    changeRandom();
     
+
     function addTouchEvent(){
         window.addEventListener('load', function(){ // on page load
             var t=document.body.addEventListener('touchstart', function(e){
@@ -23,16 +22,14 @@ window.addEventListener('DOMContentLoaded', function() {
                     isSelected(obj.target.id);
                 }
                 if(obj.target.id==='more'){
-                    var parent = document.getElementById("container");
-                    parent.parentNode.removeChild(parent);
+                    $('#container').empty();
                     setOnline();
                 }
                 if(obj.target.id==='set'){
                     setWallpaper();
                 }
                 if(obj.target.id==='back'){
-                    var parent=document.getElementById("online");
-                    parent.parentNode.removeChild(parent);
+                    $('#container').empty();
                     setLocal();
                 }
             }, false);
@@ -102,10 +99,10 @@ window.addEventListener('DOMContentLoaded', function() {
     function setBorder(){    
         if(prev!=null){
              img=document.getElementById(prev);
-             img.style.border="0px solid white";
+             img.style.boxShadow="0px 0px 0px 0px white";
         }            
         img=document.getElementById(name);
-        img.style.border="1.8px solid white";
+        img.style.boxShadow="1px 1px 6px 2px #e74c3c";
         prev=name;        
     }
 
@@ -113,24 +110,18 @@ window.addEventListener('DOMContentLoaded', function() {
     //Este metodo tiene como finalidad hacer la carga de todos los wallpapers almacenados en el servidor
     //y que serán ofrecidos a los usuarios de forma Online.
 
-    function getOnlineResource(){       
-       //Ajustamos todas las variables y parámetros de coneccion al servidor
-        var server="http://niconsystem.zz.mu/NiconWall/";
-        var nameImg="th-wall-";
-        var ext=".jpg";
-        var idI="img";
-        var maxFile=13;
+    function getOnlineResource(){
         var subName=0;        
-        var divImg=document.getElementById("online");
+        var divImg=document.getElementById("container");
         
-        //hacemos la carga de todas las imágenes del servidor
-            for(var i=0;i<maxFile;i++){                
+            for(var i=0;i<sizeOnline;i++){                
                 subName=i+1; 
                 var onlImg=document.createElement("img");
-                onlImg.id=idI+subName;
+                var wall = new Wallpaper(2,subName);
+                onlImg.id=wall.creaID();
                 onlImg.className='touch';
-                onlImg.src=server+nameImg+subName+ext;                
-                divImg.appendChild(onlImg);  
+                onlImg.src=wall.creaSRC();                
+                divImg.appendChild(onlImg);
             }
     }
     
@@ -138,21 +129,17 @@ window.addEventListener('DOMContentLoaded', function() {
     //este metodo se encarga de hacer la carga de todas las imagenes almacenadas de forma local en la app
     //y cargarlas en la vista Html.
     
-    function getLocalResource(){
-        var urlocal="/img/thumbs/";
-        var Loname="th-wall-";
-        var Loext=".jpg";
-        var LoidI="img";        
+    function getLocalResource(){               
         var subname=0;
-        var divLo=document.getElementById("container");
-        
-            for(var i=0;i<30;i++){
+        var divLo=document.getElementById("container");        
+            for(var i=0;i<sizeLocal;i++){
                 subname=i+1;
-                var loImg = document.createElement("img");
-                loImg.id=LoidI+subname;
-                loImg.className='touch';
-                loImg.src=urlocal+Loname+subname+Loext;
-                divLo.appendChild(loImg);
+                var imagen = document.createElement("img");
+                var wall = new Wallpaper(1,subname);
+                imagen.id= wall.creaID();
+                imagen.className='touch';
+                imagen.src= wall.creaSRC();
+                divLo.appendChild(imagen);
             }
     }
     
@@ -160,25 +147,95 @@ window.addEventListener('DOMContentLoaded', function() {
     //Permite ajustar la UI de NiconWall para obtener los wallpapers desde el servidor.
     
     function setOnline(){
-        mode=1;
-        var online=document.createElement("div");
-        online.setAttribute("id","online");                
+        mode=1;             
         document.getElementById("more").style.display='none';
         document.getElementById("bn-back").style.display='inline'; 
-        document.body.appendChild(online);
         getOnlineResource();        
         addTouchEvent();
     }
 
-    //Permite ajustar la UI de NiconWall 
     
+    /*
+       Este metodo permite ajustar la interfaz de NiconWall para el modo Local
+    */
     function setLocal(){  
-        mode=0;       
-        var local=document.createElement("div");
-        local.setAttribute("id","container");
-        document.body.appendChild(local);
+        mode=0;
         document.getElementById("more").style.display='block';
         document.getElementById("bn-back").style.display='none';        
         getLocalResource();
     }
+    
+    
+    /**
+        Este metodo tendrá como finalidad cambiar en un determinado intervalo de tiempo 
+        el wallpaper de la cabecera principal, usando JQuery vamos a crear el efecto y
+        cambio cada 10 segundos.
+    */
+    function changeRandom() {
+        //vamos a ajustar la primer imagen del random, las imagenes aletatorias podran ser tanto
+        //locales como las online
+        var imag;
+        var imgID;
+        var wall;
+        
+        var imag=document.createElement("img");
+        imag.src = "/img/thumbs/NiconSystem.png";
+        $('.random').append(imag);
+        
+        setInterval(function(){
+            var tipoImagen = Math.floor(Math.random()*2);
+            if(tipoImagen === 1){
+                imgID = Math.floor(Math.random()*sizeLocal);                
+                wall = new Wallpaper(1,imgID);
+                imag.id=wall.creaID();
+                imag.src=wall.creaSRC(); 
+            }else{
+                imgID = Math.floor(Math.random()*sizeOnline);
+                wall = new Wallpaper(2,imgID);
+                imag.id=wall.creaID();
+                imag.src=wall.creaSRC(); 
+            }
+        $('.random').append(imag).hide().fadeIn('slow');
+        },6000);        
+    }
 });  
+
+
+
+/*
+    Creamos el objeto Wallpaper el cual será el encargado de operaciones basicas en cuanto a manejo de wallpapers
+    se refiere.
+
+*/
+
+function Wallpaper(tipo, id){
+    this.tipo = tipo;
+    this.ident = id;
+    this.localSrc = "/img/thumbs/";
+    this.serverSrc = "http://niconsystem.zz.mu/NiconWall/";
+    this.nombre = "th-wall-";
+    this.ext = ".jpg";
+  
+    
+    /**
+       Este metodo permite crear el SRC de la imagen segun el tipo de imagen
+       recibido
+    */    
+    this.creaSRC = function(){
+        //Si el tipo es 1 la imagen será cargada desde la url local.
+        
+        if(this.tipo === 1){
+              return this.localSrc+this.nombre+this.ident+this.ext;
+           }else{
+             return this.serverSrc+this.nombre+this.ident+this.ext;
+         }       
+    };
+    
+    
+    /**
+       Este metodo permite crear el ID de cada imagen
+    */
+     this.creaID = function(){
+          return "img"+id;
+     }
+}

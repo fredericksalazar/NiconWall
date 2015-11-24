@@ -31,7 +31,7 @@
         execute the deferred files.
         Read about defer: https://developer.mozilla.org/Web/HTML/Element/script#attr-defer
         -->
-        <script type="text/javascript" src="js/app.js"></script>
+              
     </head>
     <body>          
         <section role="region">
@@ -40,12 +40,48 @@
                  <img id="back" src="img/icons/left.png"> 
              </a>
              <menu type="toolbar">
-                <button id="set" onclick="setWallpaper()"></button>
-                <button id="more" onclick="setOnline()"></button>
+                <button id="set"></button>
+                <button id="more"></button>
              </menu>
              <h1 id="title">NiconWall</h1>
           </header>
        </section>
+        <div class="random"></div>
+        <div id="container"></div>
         
+        <footer id="footer">
+            <h1> NiconWall for <br> Firefox OS</h1>
+            <p>
+                Version: 4.0<br>
+                Developed By: <strong>NiconSystemCO</strong><br>
+                IDE: Brackets | Firefox WebIDE<br>
+                Mainteiner: Frederick Salazar Sanchez<br>
+                twitter: <strong>@FrederickLinux</strong><br>
+                Pub Date: <strong>13 of november of 2015</strong><br>
+            </p>
+            <h1> What this:</h1>
+            <p>
+                NiconWall is an exclusive app for Firefox OS devices, set beautiful wallpapers for your phone FirefoxOS, NiconWall is a free app but you can make donations via paypal.
+            </p>
+            <h1> Que es esto:</h1>
+            <p>
+                NiconWall es una app eclusiva para dispositivos Firefox OS, ajuste hermosos wallpapers para su teléfono FirefoxOS, NiconWall es una app gratuita pero usted puede ayudar en su desarrollo haciendo una pequeña donación via paypal.
+            </p>
+            <p><h1>Thank you</h1></p>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_donations">
+            <input type="hidden" name="business" value="fredefass01@gmail.com">
+            <input type="hidden" name="lc" value="CO">
+            <input type="hidden" name="item_name" value="NiconSystemCO">
+            <input type="hidden" name="no_note" value="0">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer,                                   easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" height="1">
+            </form>
+
+        </footer>
     </body>
+<script type = "text/javascript" src = "js/jquery.js"></script>  
+<script type = "text/javascript" src = "js/app.js"></script>
 </html>
