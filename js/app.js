@@ -135,9 +135,10 @@ window.addEventListener('DOMContentLoaded', function() {
     */
 
     function getOnlineResource(){
-        var subName=0;
-        var divImg=document.getElementById("container");
-
+        var subName = 0;
+        var container = document.getElementById("container");
+        var divON = document.createElement("div");
+        divON.id = "container-on";
           if(navigator.onLine){
             for(var i=0;i<sizeOnline;i++){
                 subName=i+1;
@@ -146,8 +147,9 @@ window.addEventListener('DOMContentLoaded', function() {
                 onlImg.id=wall.creaID();
                 onlImg.className='touch';
                 onlImg.src=wall.creaSRC();
-                divImg.appendChild(onlImg);
+                divON.appendChild(onlImg);
             }
+            container.appendChild(divON);
           }else{
             divImg.innerHTML = "<p id='info'>¡The online mode fail! <br> NO Internet Acces, please verify!</p>";
           }
@@ -160,8 +162,10 @@ window.addEventListener('DOMContentLoaded', function() {
       imágenes dentro del modo local estas deben ser mostradas en la vista
     */
     function getLocalResource(){
-        var subname=0;
-        var divLo=document.getElementById("container");
+        var subname = 0;
+        var container = document.getElementById("container");
+        var divLo = document.createElement("div");
+        divLo.id = "container-lo";
             for(var i=0;i<sizeLocal;i++){
                 subname=i+1;
                 var imagen = document.createElement("img");
@@ -171,6 +175,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 imagen.src= wall.creaSRC();
                 divLo.appendChild(imagen);
             }
+            container.appendChild(divLo);
     }
 
 
@@ -182,8 +187,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function setOnline(){
         mode=1;
-        //document.getElementById("more").style.display='none';
-        //document.getElementById("bn-back").style.display='inline';
         $("#more").fadeOut();
         $("#bn-back").fadeIn();
         getOnlineResource();
@@ -198,6 +201,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function setLocal(){
         mode=0;
+        $("#container-on").fadeOut();
         $("#more").fadeIn();
         $("#bn-back").fadeOut();
         getLocalResource();
