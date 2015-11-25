@@ -1,5 +1,5 @@
 {
-  "version": "4.0",
+  "version": "4.3",
   "name": "NiconWall",
   "description": "Los mas hermosos Wallpapers para tu FirefoxOS, NiconWall provee una manera sencilla de ajustar wallpapers que se ajustan a la filosofía de Mozilla, minimalismo, calidad y hermosura para hacer más hermoso a FirefoxOS",
   "launch_path": "/index.html",
@@ -13,7 +13,7 @@
     "name": "NiconSystem CO",
     "url": "http://niconsystem.zz.mu/proyectos/niconwall"
   },
-  "permissions": {  
+  "permissions": {
     "systemXHR" : {
       "description" : "Required to access remote api"
     }

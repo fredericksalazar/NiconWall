@@ -149,10 +149,10 @@ window.addEventListener('DOMContentLoaded', function() {
                 onlImg.src=wall.creaSRC();
                 divON.appendChild(onlImg);
             }
-            container.appendChild(divON);
           }else{
-            divImg.innerHTML = "<p id='info'>¡The online mode fail! <br> NO Internet Acces, please verify!</p>";
+            divON.innerHTML = "<p id='info'>¡The online mode fail! <br> NO Internet Access, please verify!</p>";
           }
+          container.appendChild(divON);
     }
 
 
@@ -201,7 +201,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function setLocal(){
         mode=0;
-        $("#container-on").fadeOut();
         $("#more").fadeIn();
         $("#bn-back").fadeOut();
         getLocalResource();
