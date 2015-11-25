@@ -182,8 +182,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function setOnline(){
         mode=1;
-        document.getElementById("more").style.display='none';
-        document.getElementById("bn-back").style.display='inline';
+        //document.getElementById("more").style.display='none';
+        //document.getElementById("bn-back").style.display='inline';
+        $("#more").fadeOut();
+        $("#bn-back").fadeIn();
         getOnlineResource();
         addTouchEvent();
     }
@@ -196,8 +198,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function setLocal(){
         mode=0;
-        document.getElementById("more").style.display='block';
-        document.getElementById("bn-back").style.display='none';
+        $("#more").fadeIn();
+        $("#bn-back").fadeOut();
         getLocalResource();
     }
 
